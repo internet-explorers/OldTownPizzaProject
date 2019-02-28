@@ -1,0 +1,136 @@
+<% include ./partials/header %>
+<div class="table-responsive">
+  <header class=" p-4 text-center">
+    Schedule
+  </header>
+  <div class="container-fluid">
+    <table class="table table-condensed table-sm table-bordered table-hover schedule-table">
+      <thead>
+        <tr>
+          <th scope="col">Name</th>
+          <th scope="col">Phone</th>
+          <th scope="col">Position</th>
+          <th scope="col">Monday</th>
+          <th scope="col">Tuesday</th>
+          <th scope="col">Wednesday</th>
+          <th scope="col">Thursday</th>
+          <th scope="col">Friday</th>
+          <th scope="col">Saturday</th>
+          <th scope="col">Sunday</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class ="copy-target">
+          <th contenteditable="true" scope="row"></th>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <th contenteditable="true" scope="row"></th>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <th contenteditable="true" scope="row"></th>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <th contenteditable="true" scope="row"></th>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <th contenteditable="true" scope="row"></th>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <th contenteditable="true" scope="row"></th>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <th contenteditable="true" scope="row"></th>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+      </tbody>
+    </table>
+    <button class = "btn btn-primary" type="button" name="button" onclick="addRow()">Add Row</button>
+    <button class = "btn btn-danger" type="button" name="button" onclick="removeRow()">Remove Row</button>
+  </div>
+
+
+</div>
+      
+<script type="text/javascript">
+      var table = document.querySelector(".schedule-table tbody");
+      var tableData = document.querySelectorAll("td");
+      var rows = table.querySelectorAll("tr");
+      for(i = 0; i < tableData.length; i++){
+      
+          tableData[i].contentEditable = "true";
+      }
+      function addRow(){
+       var dupNode = document.querySelector(".copy-target").cloneNode(true);
+        table.appendChild(dupNode);
+      }
+      
+      function removeRow(){
+        childRemove = table.lastElementChild;
+        table.removeChild(childRemove);
+      
+      }
+</script>
+    
+<% include ./partials/footer %>

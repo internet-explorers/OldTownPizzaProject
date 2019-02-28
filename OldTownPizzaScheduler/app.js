@@ -3,18 +3,26 @@ var express = require("express");
 var app = express();
 var path = require('path');
 
-/*var mysql = require('mysql');
+var flash = require('express-flash-messages')
+app.use(flash())
 
-var con = mysql.createConnection({
-  host: "127.0.0.1",
-  user: "username",
-  password: "password"
+var mysql=require('mysql');
+
+//create connection
+var db = mysql.createConnection({
+     host      : 'awstest.cftyuv7rvxtd.us-west-2.rds.amazonaws.com',
+     user      : 'user',
+     password  : 'password',
+     database  : 'awsTest'
 });
 
-con.connect(function(err) {
-  if (err) throw err;
-  console.log("Connected to mysql!");
-});*/
+//actually connect the database
+db.connect((err) => {
+     if(err){
+          throw err;
+     }
+     console.log("MySql Connected...");
+});
 
 //View engine
 app.set("view engine", "ejs");
@@ -35,6 +43,10 @@ app.get("/login", function(req, res){
     res.render("login");
 });
 
+app.get("/signup", function(req, res) {
+     res.render("signup");
+});
+
 app.get('/announcements', function(req, res){
     res.render("announcements");
 });
@@ -45,6 +57,9 @@ app.get('/mybudget', function(req, res){
 
 app.get('/account', function(req, res){
     res.render('account');
+});
+app.get('/schedule', function(req, res){
+    res.render("schedule");
 });
 
 app.get('/calendar', function(req, res){
@@ -57,16 +72,58 @@ app.get('/messages', function(req, res){
     res.render("messages");
 });
 
-app.post("/login", function(req, res){
-    res.send(req.body.username);
+app.get('/oldMessage', function(req, res){
+    res.render("oldMessage");
 });
 
-app.get('/signin', function(req, res){
-    res.render("signin");
+//intakes a username and password in login page
+/*req.body.(name exactly the same as we set it to in the ejs file) */
+app.post("/login", function(req, res){
+     var loginUserName = req.body.loginUN; 
+     var loginPassword = req.body.loginPW;
+     
+     //if username and password is inside the table then pop it out into a query
+     var loginSql = "Select Count(*) as count from users WHERE Username = ('"+loginUserName+"') AND Password = ('"+loginPassword+"')";
+     
+     //inputs the loginSql query to output if was passed through correctly
+     db.query(loginSql, function(err, data) {
+         if(err){
+              console.log(err);
+         }else{
+               if (data[0].count > 0) {
+                    console.log("entry found");
+                     res.render('index');
+                     req.flash('notify', 'Login Successful!');
+               } else {
+                    console.log("entry not found");
+                    res.render('index');
+                    req.flash('notify', 'Login Unsuccessful!');
+               }
+         }
+     });
+});
+
+//posts the info back to the database when user created
+app.post('/signup', function(req, res){
+     var name = req.body.name;
+     var username = req.body.usernm;
+     var password = req.body.pw;
+     var email = req.body.email;
+     var phoneNo = req.body.phone;
+     var sql = "INSERT INTO users (Name, Username, Password, Email, PhoneNo) VALUES ('"+name+"', '"+username+"', '"+password+"', '"+email+"', '"+phoneNo+"')";
+     console.log(name, username, password, email, phoneNo);
+          
+     db.query(sql, function(err, data) {
+          if(err) throw err;
+          else{
+               console.log("successful entry");
+               res.render('login');
+          }
+     });
 });
 
 app.post("/calendar", function(req, res){
-    res.send('calendar');
+     res.send('calendar');
 });
 
 app.listen(process.env.PORT, process.env.IP, function(){

@@ -1,0 +1,104 @@
+// What i used to commit changes
+
+cd OldTownPizzaScheduler
+git add --all
+git status
+git commit -m "description"
+git push
+
+
+
+// What i used to delete the submodule and recreate it to view it in github
+
+//Basically the issue behind it:
+//If you don't have a .gitmodules file in your main repo, that special entry is typical of adding a nested repo: check if your dist/ folder has itself a .git/ subfolder.
+//It is not a sub-folder, but a special entry in the index which marks it as a submodule-like.
+
+git rm --cached OldTownPizzaScheduler
+git commit -m "Remove submodule entry"
+rm -Rf OldTownPizzaScheduler/.git
+git add OldTownPizzaScheduler
+git commit -m "Add OldTownPizzaScheduler plain subfolder"
+git push
+
+
+
+//If it has error running the server or bc some other user might have it open already
+
+rvm get stable --auto-dotfiles
+export PATH="$PATH:/environment/OldTownPizzaScheduler"
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+          <div class = "row" style ="margin: 0 auto;">
+           <div class = "col-md-6 col-lg-3">
+
+                    <a class = "lead text-dark" href = "/" align = center> This Weeks Schedule</a>
+                    <div class = "card">
+                    <div class "list-group">
+                        <li class = "list-group-item"> Monday    4 - Close  </li>
+                        <li class = "list-group-item"> Tuesday    4 - Close</li>
+                        <li class = "list-group-item"> Wednesday    4 - Close</li>
+                        <li class = "list-group-item"> Thursday    4 - Close</li>
+                        <li class = "list-group-item"> Friday    4 - Close</li>
+                        <li class = "list-group-item"> Saturday    Day Off</li>
+                        <li class = "list-group-item"> Sunday    4 - Close</li>
+                    <div class = "card">
+                    </div>
+                  <div class = "card">
+                       <img class = "card-img-top img-fluid" src = "https://images.unsplash.com/photo-1532460734809-e7f8475ca917?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=50d580f73ea6fca23de0f66952622a0f&auto=format&fit=crop&w=2642&q=80">
+                      <div class = "card-body">
+                         
+                            <h4 class = "card title">Account Name</h4>
+                             <p>Account Summary</p>
+                      </div>
+
+                  </div>
+          </div>
+          <p class="lead" style ="margin: 20px 40 px;">Announcements</p>
+          <div class = "row" style = "margin-top: 30px;">
+              <div class = "col-md-6 col-lg-3">
+                  <div class = "card">
+                       <img class = "card-img-top img-fluid" src = "https://images.unsplash.com/photo-1532460734809-e7f8475ca917?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=50d580f73ea6fca23de0f66952622a0f&auto=format&fit=crop&w=2642&q=80">
+                      <div class = "card-body">
+                         
+                            <h4 class = "card title">Account Name</h4>
+                             <p>Account Summary</p>
+                      </div>
+
+                  </div>
