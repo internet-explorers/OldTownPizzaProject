@@ -3,9 +3,6 @@ var express = require("express");
 var app = express();
 var path = require('path');
 
-var flash = require('express-flash-messages')
-app.use(flash())
-
 var mysql=require('mysql');
 
 //create connection
@@ -35,11 +32,15 @@ app.use(bodyParser.urlencoded({extended: true}));
 //Set static path used for css and whatnot
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.get("/", function(req, res){
-    res.render("index");
+app.get('/', function(req, res){
+    res.render("indexNotUser");
 });
 
-app.get("/login", function(req, res){
+app.get('/home', function(req,res){
+     res.render("indexIsUser");
+});
+
+app.get('/login', function(req, res){
     res.render("login");
 });
 
@@ -78,7 +79,7 @@ app.get('/oldMessage', function(req, res){
 
 //intakes a username and password in login page
 /*req.body.(name exactly the same as we set it to in the ejs file) */
-app.post("/login", function(req, res){
+app.post('/login', function(req, res){
      var loginUserName = req.body.loginUN; 
      var loginPassword = req.body.loginPW;
      
@@ -92,12 +93,10 @@ app.post("/login", function(req, res){
          }else{
                if (data[0].count > 0) {
                     console.log("entry found");
-                     res.render('index');
-                     req.flash('notify', 'Login Successful!');
+                     res.render('indexIsUser');
                } else {
                     console.log("entry not found");
-                    res.render('index');
-                    req.flash('notify', 'Login Unsuccessful!');
+                    res.render('login');
                }
          }
      });
