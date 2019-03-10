@@ -5,7 +5,7 @@ var path = require('path');
 
 var mysql=require('mysql');
 
-//create connection
+//This creates the connection to mysql
 var db = mysql.createConnection({
      host      : 'awstest.cftyuv7rvxtd.us-west-2.rds.amazonaws.com',
      user      : 'user',
@@ -13,7 +13,7 @@ var db = mysql.createConnection({
      database  : 'awsTest'
 });
 
-//actually connect the database
+//Confirmation that MySql is connected
 db.connect((err) => {
      if(err){
           throw err;
@@ -77,29 +77,60 @@ app.get('/oldMessage', function(req, res){
     res.render("oldMessage");
 });
 
+app.get("/logout", function(req, res){
+    res.redirect("/login");
+});
+
 //intakes a username and password in login page
 /*req.body.(name exactly the same as we set it to in the ejs file) */
 app.post('/login', function(req, res){
      var loginUserName = req.body.loginUN; 
      var loginPassword = req.body.loginPW;
      
-     //if username and password is inside the table then pop it out into a query
-     var loginSql = "Select Count(*) as count from users WHERE Username = ('"+loginUserName+"') AND Password = ('"+loginPassword+"')";
+     //if username and password is inside the table then pop it out into a query 
+     //var loginSql = "Select Count(*) as count from users WHERE Username = ('"+loginUserName+"') AND Password = ('"+loginPassword+"')";
+     var loginSql = "Select Count(*) as count from users WHERE Username = ? AND Password = ?";
+      
+      
+     db.query(loginSql,
+          [
+               loginUserName,
+               loginPassword
+          ],
+          function(err, data) {
+               if(err){
+                    console.log(err);
+                    
+               } else {
+                    if (data[0].count > 0) {
+                         console.log("entry found");
+                         console.log(loginSql);
+                         res.render('loginSuccess');
+                    } else {
+                         console.log("entry not found");
+                         console.log(loginSql);
+                         res.render('loginFail');
+                    }
+               }
+         }
+     );
      
      //inputs the loginSql query to output if was passed through correctly
-     db.query(loginSql, function(err, data) {
+     /*db.query(loginSql, function(err, data) {
          if(err){
               console.log(err);
          }else{
                if (data[0].count > 0) {
                     console.log("entry found");
+                    console.log(loginSql);
                      res.render('indexIsUser');
                } else {
                     console.log("entry not found");
+                    console.log(loginSql);
                     res.render('login');
                }
          }
-     });
+     });*/
 });
 
 //posts the info back to the database when user created
@@ -109,16 +140,36 @@ app.post('/signup', function(req, res){
      var password = req.body.pw;
      var email = req.body.email;
      var phoneNo = req.body.phone;
-     var sql = "INSERT INTO users (Name, Username, Password, Email, PhoneNo) VALUES ('"+name+"', '"+username+"', '"+password+"', '"+email+"', '"+phoneNo+"')";
-     console.log(name, username, password, email, phoneNo);
+     //var signupSql = "INSERT INTO users (Name, Username, Password, Email, PhoneNo) VALUES ('"+name+"', '"+username+"', '"+password+"', '"+email+"', '"+phoneNo+"')";
+     var signupSql = "INSERT INTO users (Name, Username, Password, Email, PhoneNo) VALUES (?,?,?,?,?)";
+     //console.log(name, username, password, email, phoneNo);
+     
+     db.query(signupSql,
+          [
+               name,
+               username,
+               password,
+               email,
+               phoneNo
+          ],
+          function(err, data) {
+               if(err){
+                    console.log("username already taken");
+                    res.render('signupFailed');
+               } else {
+                    console.log("successful entry");
+                    res.render('signupSuccess');
+               }
+         }
+     );
           
-     db.query(sql, function(err, data) {
+     /*db.query(sql, function(err, data) {
           if(err) throw err;
           else{
                console.log("successful entry");
                res.render('login');
           }
-     });
+     });*/
 });
 
 app.post("/calendar", function(req, res){

@@ -1,11 +1,36 @@
 <% include ./partials/headIsUser %>
+<section id="cover">
+
+    <div id="cover-caption">
+        <div id="container" class="container">
+            <div class="row ">
+                <div class="col-sm-6 offset-sm-3 text-center">
+                    <h1 class="display-4">Login</h1>
+                    <div class="info-form">
+                        <form action = "/login" method = "POST" class="form-inlin justify-content-center">
+                            <div class="form-group">
+                                <label class="sr-only">Name</label>
+                                <input class = "form-control" type = "text" id = "loginInput" name = "loginUN" placeholder = "username" >
+                            </div>
+                            <div class="form-group">
+                                <label class="sr-only">Email</label>
+                                 <input class = "form-control" type = "password" id = "passwordInput"  name = "loginPW" placeholder = "password" >
+                            </div> 
+                        </form>
+                    </div>
+                    <br>
+
+
+                </div>
+        
+    </div>
+</section>
         <!--cards-->
-      <div class = "container-fluid">
+      <!--- <div class = "container-fluid">
           
             <div class = "jumbotron jumbotron-fluid bg-info text-white" style = "text-align: center; margin-top: 30px">
                 <div class = "container">
-                    <h1>Budgeting Made Easy</h1>
-                    <a class = "text-dark" href = "/mybudget">Start Budgeting Now...</a>
+                    <h1>Account</h1>
                 </div>
           </div>
           <div class = "row" style ="margin: 0 auto;">
@@ -32,5 +57,5 @@
                   
               </div>
           </div>
-      </div>
+      </div>--->
 <% include ./partials/footer %>
