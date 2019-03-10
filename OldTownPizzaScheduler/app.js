@@ -84,14 +84,14 @@ app.get("/logout", function(req, res){
 //intakes a username and password in login page
 /*req.body.(name exactly the same as we set it to in the ejs file) */
 app.post('/login', function(req, res){
-     var loginUserName = req.body.loginUN; 
+     var loginUserName = req.body.loginUN;
      var loginPassword = req.body.loginPW;
      
      //if username and password is inside the table then pop it out into a query 
      //var loginSql = "Select Count(*) as count from users WHERE Username = ('"+loginUserName+"') AND Password = ('"+loginPassword+"')";
      var loginSql = "Select Count(*) as count from users WHERE Username = ? AND Password = ?";
       
-      
+ 
      db.query(loginSql,
           [
                loginUserName,
