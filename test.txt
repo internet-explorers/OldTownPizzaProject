@@ -1,12 +1,12 @@
 // What i used to commit changes
-
 cd OldTownPizzaScheduler
 git add --all
 git status
 git commit -m "description"
 git push
 
-
+//creating a branch
+git branch otpschedv1
 
 // What i used to delete the submodule and recreate it to view it in github
 

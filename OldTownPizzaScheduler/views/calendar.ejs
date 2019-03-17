@@ -57,7 +57,6 @@ textarea{
   align-items: center;
   margin-bottom: 24px;
 }
-.calendar{}
 
 .calendar__week,
 .calendar__header {
@@ -168,71 +167,116 @@ a{
                 </div>
           </div>
 
-  <main>
-    <div class="toolbar">
-      <div class="toggle">
-      </div>
-      <div class="current-month" style="text-align:center">June 2016</div>
-      <div class="search-input">
-        <i class="fa fa-search"></i>
-      </div>
+<div id="January" style="display:block">
+
+      <div class="current-month" style="text-align:center"><button><</button>January 2016<button onclick="getFeb()">></button></div>
+        <div class="calendar">
+          <div class="calendar__header">
+            <div>sun</div>
+            <div>mon</div>
+            <div>tue</div>
+            <div>wed</div>
+            <div>thu</div>
+            <div>fri</div>
+            <div>sat</div>
+          </div>
+          <div class="calendar__week">
+            <a class="calendar__day day" onclick="openSbar()" style="text-decoration:none; cursor:pointer">1</a>
+            <a class="calendar__day day" onclick="myFunction()" style="text-decoration:none">2</a>
+            <a class="calendar__day day" onclick="adminSbar()" style="text-decoration:none; cursor:pointer">3</a>
+            <a class="calendar__day day" href="/home" style="text-decoration:none">4</a>
+            <a class="calendar__day day" href="/home" style="text-decoration:none">5</a>
+            <a class="calendar__day day" href="/home" style="text-decoration:none">6</a>
+            <a class="calendar__day day" href="/home" style="text-decoration:none">7</a>
+          </div>
+          <div class="calendar__week">
+            <a class="calendar__day day" href="/home" style="text-decoration:none">8</a>
+            <a class="calendar__day day" href="/home" style="text-decoration:none">9</a>
+            <a class="calendar__day day" href="/home" style="text-decoration:none">10</a>
+            <a class="calendar__day day" href="/home" style="text-decoration:none">11</a>
+            <a class="calendar__day day" href="/home" style="text-decoration:none">12</a>
+            <a class="calendar__day day" href="/home" style="text-decoration:none">13</a>
+            <a class="calendar__day day" href="/home" style="text-decoration:none">14</a>        
+          </div>
+          <div class="calendar__week">
+            <a class="calendar__day day" href="/home" style="text-decoration:none">15</a>
+            <a class="calendar__day day" href="/home" style="text-decoration:none">16</a>
+            <a class="calendar__day day" href="/home" style="text-decoration:none">17</a>
+            <a class="calendar__day day" href="/home" style="text-decoration:none">18</a>
+            <a class="calendar__day day" href="/home" style="text-decoration:none">19</a>
+            <a class="calendar__day day" href="/home" style="text-decoration:none">20</a>
+            <a class="calendar__day day" href="/home" style="text-decoration:none">21</a>    
+          </div>
+          <div class="calendar__week">
+            <a class="calendar__day day" href="/home" style="text-decoration:none">22</a>
+            <a class="calendar__day day" href="/home" style="text-decoration:none">23</a>
+            <a class="calendar__day day" href="/home" style="text-decoration:none">24</a>
+            <a class="calendar__day day" href="/home" style="text-decoration:none">25</a>
+            <a class="calendar__day day" href="/home" style="text-decoration:none">26</a> 
+            <a class="calendar__day day" href="/home" style="text-decoration:none">27</a> 
+            <a class="calendar__day day" href="/home" style="text-decoration:none">28</a> 
+          </div>
+          <div class="calendar__week">
+            <a class="calendar__day day" href="/home" style="text-decoration:none">29</a>
+            <a class="calendar__day day" href="/home" style="text-decoration:none">30</a>
+            <a class="calendar__day day" href="/home" style="text-decoration:none">31</a>
+          </div>
+  <hr>
     </div>
-    <div class="calendar">
-      <div class="calendar__header">
-        <div>sun</div>
-        <div>mon</div>
-        <div>tue</div>
-        <div>wed</div>
-        <div>thu</div>
-        <div>fri</div>
-        <div>sat</div>
-      </div>
-      <div class="calendar__week">
-        <a class="calendar__day day" onclick="openSbar()" style="text-decoration:none; cursor:pointer">1</a>
-        <a class="calendar__day day" onclick="myFunction()" style="text-decoration:none">2</a>
-        <a class="calendar__day day" onclick="adminSbar()" style="text-decoration:none; cursor:pointer">3</a>
-        <a class="calendar__day day" href="/home" style="text-decoration:none">4</a>
-        <a class="calendar__day day" href="/home" style="text-decoration:none">5</a>
-        <a class="calendar__day day" href="/home" style="text-decoration:none">6</a>
-        <a class="calendar__day day" href="/home" style="text-decoration:none">7</a>
-      </div>
-      <div class="calendar__week">
-        <a class="calendar__day day" href="/home" style="text-decoration:none">8</a>
-        <a class="calendar__day day" href="/home" style="text-decoration:none">9</a>
-        <a class="calendar__day day" href="/home" style="text-decoration:none">10</a>
-        <a class="calendar__day day" href="/home" style="text-decoration:none">11</a>
-        <a class="calendar__day day" href="/home" style="text-decoration:none">12</a>
-        <a class="calendar__day day" href="/home" style="text-decoration:none">13</a>
-        <a class="calendar__day day" href="/home" style="text-decoration:none">14</a>        
-      </div>
-      <div class="calendar__week">
-        <a class="calendar__day day" href="/home" style="text-decoration:none">15</a>
-        <a class="calendar__day day" href="/home" style="text-decoration:none">16</a>
-        <a class="calendar__day day" href="/home" style="text-decoration:none">17</a>
-        <a class="calendar__day day" href="/home" style="text-decoration:none">18</a>
-        <a class="calendar__day day" href="/home" style="text-decoration:none">19</a>
-        <a class="calendar__day day" href="/home" style="text-decoration:none">20</a>
-        <a class="calendar__day day" href="/home" style="text-decoration:none">21</a>    
-      </div>
-      <div class="calendar__week">
-        <a class="calendar__day day" href="/home" style="text-decoration:none">22</a>
-        <a class="calendar__day day" href="/home" style="text-decoration:none">23</a>
-        <a class="calendar__day day" href="/home" style="text-decoration:none">24</a>
-        <a class="calendar__day day" href="/home" style="text-decoration:none">25</a>
-        <a class="calendar__day day" href="/home" style="text-decoration:none">26</a> 
-        <a class="calendar__day day" href="/home" style="text-decoration:none">27</a> 
-        <a class="calendar__day day" href="/home" style="text-decoration:none">28</a> 
-      </div>
-      <div class="calendar__week">
-        <a class="calendar__day day" href="/home" style="text-decoration:none">29</a>
-        <a class="calendar__day day" href="/home" style="text-decoration:none">30</a>
-        <a class="calendar__day day" href="/home" style="text-decoration:none">31</a>
-        <a class="calendar__day day" href="/home" style="text-decoration:none">1</a>
-        <a class="calendar__day day" href="/home" style="text-decoration:none">2</a>
-        <a class="calendar__day day" href="/home" style="text-decoration:none">3</a>
-        <a class="calendar__day day" href="/home" style="text-decoration:none">4</a>
-      </div>
-<hr>
+</div>
+
+<div id="February" style="display:none">
+
+      <div class="current-month" style="text-align:center"><button onclick="getJan()"><</button>February 2016<button>></button></div>
+        <div class="calendar">
+          <div class="calendar__header">
+            <div>sun</div>
+            <div>mon</div>
+            <div>tue</div>
+            <div>wed</div>
+            <div>thu</div>
+            <div>fri</div>
+            <div>sat</div>
+          </div>
+          <div class="calendar__week">
+            <a class="calendar__day day" onclick="openSbar()" style="text-decoration:none; cursor:pointer">1</a>
+            <a class="calendar__day day" onclick="myFunction()" style="text-decoration:none">2</a>
+            <a class="calendar__day day" onclick="adminSbar()" style="text-decoration:none; cursor:pointer">3</a>
+            <a class="calendar__day day" href="/home" style="text-decoration:none">4</a>
+            <a class="calendar__day day" href="/home" style="text-decoration:none">5</a>
+            <a class="calendar__day day" href="/home" style="text-decoration:none">6</a>
+            <a class="calendar__day day" href="/home" style="text-decoration:none">7</a>
+          </div>
+          <div class="calendar__week">
+            <a class="calendar__day day" href="/home" style="text-decoration:none">8</a>
+            <a class="calendar__day day" href="/home" style="text-decoration:none">9</a>
+            <a class="calendar__day day" href="/home" style="text-decoration:none">10</a>
+            <a class="calendar__day day" href="/home" style="text-decoration:none">11</a>
+            <a class="calendar__day day" href="/home" style="text-decoration:none">12</a>
+            <a class="calendar__day day" href="/home" style="text-decoration:none">13</a>
+            <a class="calendar__day day" href="/home" style="text-decoration:none">14</a>        
+          </div>
+          <div class="calendar__week">
+            <a class="calendar__day day" href="/home" style="text-decoration:none">15</a>
+            <a class="calendar__day day" href="/home" style="text-decoration:none">16</a>
+            <a class="calendar__day day" href="/home" style="text-decoration:none">17</a>
+            <a class="calendar__day day" href="/home" style="text-decoration:none">18</a>
+            <a class="calendar__day day" href="/home" style="text-decoration:none">19</a>
+            <a class="calendar__day day" href="/home" style="text-decoration:none">20</a>
+            <a class="calendar__day day" href="/home" style="text-decoration:none">21</a>    
+          </div>
+          <div class="calendar__week">
+            <a class="calendar__day day" href="/home" style="text-decoration:none">22</a>
+            <a class="calendar__day day" href="/home" style="text-decoration:none">23</a>
+            <a class="calendar__day day" href="/home" style="text-decoration:none">24</a>
+            <a class="calendar__day day" href="/home" style="text-decoration:none">25</a>
+            <a class="calendar__day day" href="/home" style="text-decoration:none">26</a> 
+            <a class="calendar__day day" href="/home" style="text-decoration:none">27</a> 
+            <a class="calendar__day day" href="/home" style="text-decoration:none">28</a> 
+          </div>
+  <hr>
+    </div>
+</div>
 
 <div id="mySideBar" class="sidebar">
   <a href="javascript:void(0)" class="closebtn" onclick="closeSbar()">&times;</a>
@@ -273,6 +317,7 @@ a{
 </div>
 
 <script type="text/javascript">
+
 function addSched(){
   document.getElementById("addEmp").style.width = "250px";
   document.getElementById("adminSideBar").style.width = "0px";
@@ -302,8 +347,15 @@ function myFunction() {
   var reschedule = alert("Please Change my shift to");
 }
 
-</script>
+function getFeb() {
+  document.getElementById("January").style.display = "none";
+  document.getElementById("February").style.display = "block";
+}
 
-  </main>
+function getJan() {
+  document.getElementById("January").style.display = "block";
+  document.getElementById("February").style.display = "none";
+}
+</script>
 
 <% include ./partials/footer %>
