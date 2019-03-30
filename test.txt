@@ -29,76 +29,21 @@ rvm get stable --auto-dotfiles
 export PATH="$PATH:/environment/OldTownPizzaScheduler"
 
 
+git init    //initializes a new repository
+git status  //displays all the updated staged and commits
+git add "filename"  //stages a file to be commited
+git add .       //stages all the files that have been changed
+git commit -m "message" //commits a file to be pushed
+git log     //displays all the commits history
+git show HEAD   //shows HEAD which is the current commit it is pointing to
+git checkout "hash"     //changes to the hash commit it is assigned
+git checkout master     //changes to the latest commit
+git tag "tagname"       //whatever commit you are in, you can create a tag so you dont have to remember the hash
+git branch              //displays all the branch you have created with * being the current branch
+git branch "branchname" //creates a new branch
+git checkout "branchname" //changes to a different branch you request
+git merge master        //if in another branch, merging it with master able to push files
 
+git fetch origin master //bring changes to a branch in our local repo
+git merge origin/master master  //bring the changes we fetched into origin/master to master
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-          <div class = "row" style ="margin: 0 auto;">
-           <div class = "col-md-6 col-lg-3">
-
-                    <a class = "lead text-dark" href = "/" align = center> This Weeks Schedule</a>
-                    <div class = "card">
-                    <div class "list-group">
-                        <li class = "list-group-item"> Monday    4 - Close  </li>
-                        <li class = "list-group-item"> Tuesday    4 - Close</li>
-                        <li class = "list-group-item"> Wednesday    4 - Close</li>
-                        <li class = "list-group-item"> Thursday    4 - Close</li>
-                        <li class = "list-group-item"> Friday    4 - Close</li>
-                        <li class = "list-group-item"> Saturday    Day Off</li>
-                        <li class = "list-group-item"> Sunday    4 - Close</li>
-                    <div class = "card">
-                    </div>
-                  <div class = "card">
-                       <img class = "card-img-top img-fluid" src = "https://images.unsplash.com/photo-1532460734809-e7f8475ca917?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=50d580f73ea6fca23de0f66952622a0f&auto=format&fit=crop&w=2642&q=80">
-                      <div class = "card-body">
-                         
-                            <h4 class = "card title">Account Name</h4>
-                             <p>Account Summary</p>
-                      </div>
-
-                  </div>
-          </div>
-          <p class="lead" style ="margin: 20px 40 px;">Announcements</p>
-          <div class = "row" style = "margin-top: 30px;">
-              <div class = "col-md-6 col-lg-3">
-                  <div class = "card">
-                       <img class = "card-img-top img-fluid" src = "https://images.unsplash.com/photo-1532460734809-e7f8475ca917?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=50d580f73ea6fca23de0f66952622a0f&auto=format&fit=crop&w=2642&q=80">
-                      <div class = "card-body">
-                         
-                            <h4 class = "card title">Account Name</h4>
-                             <p>Account Summary</p>
-                      </div>
-
-                  </div>

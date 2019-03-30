@@ -59,8 +59,24 @@ app.get('/mybudget', function(req, res){
 app.get('/account', function(req, res){
     res.render('account');
 });
+
+//get date
+let curr = new Date;
+let weekDates = [];
+let monthNames = ["January","February","March","April","May","June","July","August","September","October","November", "December"];
+for (let i = 1; i <= 7; i++) {
+  let first = curr.getDate() - curr.getDay() + i;
+  let day = new Date(curr.setDate(first)).toISOString().slice(0, 10);
+  weekDates.push(day);
+}
+let thisMonthStr = monthNames[curr.getMonth()];
+let thisYearStr = curr.getFullYear();
 app.get('/schedule', function(req, res){
-    res.render("schedule");
+      let datesThisWeek = [];
+    weekDates.forEach(function(day){
+      datesThisWeek.push(day.slice(8));
+    });
+    res.render("schedule",{datesThisWeek: datesThisWeek, thisMonthStr: thisMonthStr, thisYearStr: thisYearStr});
 });
 
 app.get('/calendar', function(req, res){
@@ -172,8 +188,39 @@ app.post('/signup', function(req, res){
      });*/
 });
 
+app.post('/schedule', function(req, res){
+     // var empID = req.body.e.target;
+     // var empName = req.body.B;
+     // var empPhone = req.body.C;
+     // var empPosition = req.body.D;
+     let tableTitle = req.body.schedule_title;
+     let htmlCode = req.body.htmlCode;
+     
+     
+     var schedData = "INSERT INTO scheduler (TableTitle) VALUES ?";
+     
+          db.query(schedData,
+          [
+               tableTitle,
+          ],
+ 
+          function(err, data) {
+               if(err){
+                    console.log(err);
+                    
+               } else {
+                    console.log("success");
+               }
+          }
+     );
+});
+
 app.post("/calendar", function(req, res){
      res.send('calendar');
+});
+
+app.post("/", function(req, res){
+     console.log(req.body);
 });
 
 app.listen(process.env.PORT, process.env.IP, function(){
