@@ -51,12 +51,6 @@ textarea{
 }
 
 /* MAIN */
-.toolbar{
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 24px;
-}
 
 .calendar__week,
 .calendar__header {
@@ -74,52 +68,15 @@ textarea{
   text-align: center;
 }
 
+.m{
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);  
+  grid-columns: 3;
+  grid-auto-rows: 100px;
+  text-align: right;
+}
 .calendar__day{
   padding: 16px;
-}
-
-/* COSMETIC STYLING */
-
-.menu__item {
-  text-transform: uppercase;
-  font-size: 0.7rem;
-  font-weight: 500;
-  padding: 16px 16px 16px 14px;
-  border-left: 4px solid transparent;
-  color: inherit;
-  text-decoration: none;
-  transition: color ease 0.3s;
-}
-
-.menu__item--active .menu__icon {
-  color: var(--red);
-}
-.menu__item--active .menu__text {
-  color: black;
-}
-
-.menu__item:hover {
-  color: black;
-}
-
-.menu__icon {
-  font-size: 1.3rem;
-}
-
-@media screen and (min-width: 850px) {
-  .menu__icon {
-    font-size: 0.9rem;
-    padding-right: 16px;
-  }
-  .menu__item--active {
-    border-left: 4px solid var(--red);
-    box-shadow: inset 10px 0px 17px -13px var(--red);
-  }
-}
-
-.copyright {
-  font-size: 0.7rem;
-  font-weight: 400;
 }
 
 .calendar {
@@ -167,21 +124,32 @@ a{
                 </div>
           </div>
 
-<div id="calendar">HELLO???</div>
+<div class="current-month" style="text-align:center">
+      <span id="2" style="display:none"><button onclick="getJan()"><</button>February<button onclick="getMarch()">></button></span>
+      <span id="3" style="display:none"><button onclick="getFeb()"><</button>March<button onclick="getApril()">></button></span>
+      <span style="display:none"><button onclick="getMarch()"><</button>April<button onclick="getMay()">></button></span>
+      <span id="5" style="display:none"><button onclick="getApril()"><</button>May<button onclick="getJune()">></button></span>
+      <span id="6" style="display:none"><button onclick="getMay()"><</button>June<button onclick="getJuly()">></button></span>
+      <span id="7" style="display:none"><button onclick="getJune()"><</button>July<button onclick="getAugust()">></button></span>
+      <span id="8" style="display:none"><button onclick="getJuly()"><</button>August<button onclick="getSep()">></button></span>
+      <span id="9" style="display:none"><button onclick="getAugust()"><</button>September<button onclick="getOct()">></button></span>
+      <span id="10" style="display:none"><button onclick="getSep()"><</button>October<button onclick="getNov()">></button></span>
+      <span id="11" style="display:none"><button onclick="getOct()"><</button>November<button onclick="getDec()">></button></span>
+      <span id="12" style="display:none"><button onclick="getNov()"><</button>December <scan id="curYear">hi</scan><button onclick="getJan()">></button></span>
+</div>
 
-<div id="January" style="display:block">
-
-      <div class="current-month" style="text-align:center"><button><</button>January 2016<button onclick="getFeb()">></button></div>
+<div id="January" style="display:none">
+  <div class="current-month" style="text-align:center"><button onclick="getDec()"><</button>January<button onclick="getFeb()">></button></div>
+    <div class="calendar__header">
+      <div>sun</div>
+      <div>mon</div>
+      <div>tue</div>
+      <div>wed</div>
+      <div>thu</div>
+      <div>fri</div>
+      <div>sat</div>
+    </div>
         <div class="calendar">
-          <div class="calendar__header">
-            <div>sun</div>
-            <div>mon</div>
-            <div>tue</div>
-            <div>wed</div>
-            <div>thu</div>
-            <div>fri</div>
-            <div>sat</div>
-          </div>
           <div class="calendar__week">
             <a class="calendar__day day" onclick="openSbar()" style="text-decoration:none; cursor:pointer">1</a>
             <a class="calendar__day day" onclick="myFunction()" style="text-decoration:none">2</a>
@@ -228,18 +196,17 @@ a{
 </div>
 
 <div id="February" style="display:none">
-
-      <div class="current-month" style="text-align:center"><button onclick="getJan()"><</button>February 2016<button>></button></div>
+  <div class="current-month" style="text-align:center"><button onclick="getJan()"><</button>February<button onclick="getMarch()">></button></div>
+    <div class="calendar__header">
+      <div>sun</div>
+      <div>mon</div>
+      <div>tue</div>
+      <div>wed</div>
+      <div>thu</div>
+      <div>fri</div>
+      <div>sat</div>
+      </div>
         <div class="calendar">
-          <div class="calendar__header">
-            <div>sun</div>
-            <div>mon</div>
-            <div>tue</div>
-            <div>wed</div>
-            <div>thu</div>
-            <div>fri</div>
-            <div>sat</div>
-          </div>
           <div class="calendar__week">
             <a class="calendar__day day" onclick="openSbar()" style="text-decoration:none; cursor:pointer">1</a>
             <a class="calendar__day day" onclick="myFunction()" style="text-decoration:none">2</a>
@@ -281,18 +248,17 @@ a{
 </div>
 
 <div id="March" style="display:none">
-
-      <div class="current-month" style="text-align:center"><button><</button>March 2016<button onclick="getFeb()">></button></div>
+  <div class="current-month" style="text-align:center"><button onclick="getFeb()"><</button>March<button onclick="getApril()">></button></div>
+    <div class="calendar__header">
+        <div>sun</div>
+        <div>mon</div>
+        <div>tue</div>
+        <div>wed</div>
+        <div>thu</div>
+        <div>fri</div>
+        <div>sat</div>
+    </div>
         <div class="calendar">
-          <div class="calendar__header">
-            <div>sun</div>
-            <div>mon</div>
-            <div>tue</div>
-            <div>wed</div>
-            <div>thu</div>
-            <div>fri</div>
-            <div>sat</div>
-          </div>
           <div class="calendar__week">
             <a class="calendar__day day" onclick="openSbar()" style="text-decoration:none; cursor:pointer">1</a>
             <a class="calendar__day day" onclick="myFunction()" style="text-decoration:none">2</a>
@@ -339,18 +305,17 @@ a{
 </div>
 
 <div id="April" style="display:none">
-
-      <div class="current-month" style="text-align:center"><button><</button>April 2016<button onclick="getFeb()">></button></div>
+  <div class="current-month" style="text-align:center"><button onclick="getMarch()"><</button>April<button onclick="getMay()">></button></div>
+    <div class="calendar__header">
+        <div>sun</div>
+        <div>mon</div>
+        <div>tue</div>
+        <div>wed</div>
+        <div>thu</div>
+        <div>fri</div>
+        <div>sat</div>
+      </div>
         <div class="calendar">
-          <div class="calendar__header">
-            <div>sun</div>
-            <div>mon</div>
-            <div>tue</div>
-            <div>wed</div>
-            <div>thu</div>
-            <div>fri</div>
-            <div>sat</div>
-          </div>
           <div class="calendar__week">
             <a class="calendar__day day" onclick="openSbar()" style="text-decoration:none; cursor:pointer">1</a>
             <a class="calendar__day day" onclick="myFunction()" style="text-decoration:none">2</a>
@@ -391,23 +356,21 @@ a{
             <a class="calendar__day day" href="/home" style="text-decoration:none">29</a>
             <a class="calendar__day day" href="/home" style="text-decoration:none">30</a>
           </div>
-  <hr>
-    </div>
+      </div>
 </div>
 
 <div id="May" style="display:none">
-
-      <div class="current-month" style="text-align:center"><button><</button>May 2016<button onclick="getFeb()">></button></div>
+  <div class="current-month" style="text-align:center"><button onclick="getApril()"><</button>May<button onclick="getJune()">></button></div>
+    <div class="calendar__header">
+        <div>sun</div>
+        <div>mon</div>
+        <div>tue</div>
+        <div>wed</div>
+        <div>thu</div>
+        <div>fri</div>
+        <div>sat</div>
+      </div>
         <div class="calendar">
-          <div class="calendar__header">
-            <div>sun</div>
-            <div>mon</div>
-            <div>tue</div>
-            <div>wed</div>
-            <div>thu</div>
-            <div>fri</div>
-            <div>sat</div>
-          </div>
           <div class="calendar__week">
             <a class="calendar__day day" onclick="openSbar()" style="text-decoration:none; cursor:pointer">1</a>
             <a class="calendar__day day" onclick="myFunction()" style="text-decoration:none">2</a>
@@ -449,23 +412,21 @@ a{
             <a class="calendar__day day" href="/home" style="text-decoration:none">30</a>
             <a class="calendar__day day" href="/home" style="text-decoration:none">31</a>
           </div>
-  <hr>
-    </div>
+      </div>
 </div>
 
 <div id="June" style="display:none">
-
-      <div class="current-month" style="text-align:center"><button><</button>June 2016<button onclick="getFeb()">></button></div>
+  <div class="current-month" style="text-align:center"><button onclick="getMay()"><</button>June<button onclick="getJuly()">></button></div>
+    <div class="calendar__header">
+        <div>sun</div>
+        <div>mon</div>
+        <div>tue</div>
+        <div>wed</div>
+        <div>thu</div>
+        <div>fri</div>
+        <div>sat</div>
+      </div>
         <div class="calendar">
-          <div class="calendar__header">
-            <div>sun</div>
-            <div>mon</div>
-            <div>tue</div>
-            <div>wed</div>
-            <div>thu</div>
-            <div>fri</div>
-            <div>sat</div>
-          </div>
           <div class="calendar__week">
             <a class="calendar__day day" onclick="openSbar()" style="text-decoration:none; cursor:pointer">1</a>
             <a class="calendar__day day" onclick="myFunction()" style="text-decoration:none">2</a>
@@ -511,18 +472,17 @@ a{
 </div>
 
 <div id="July" style="display:none">
-
-      <div class="current-month" style="text-align:center"><button><</button>July 2016<button onclick="getFeb()">></button></div>
+  <div class="current-month" style="text-align:center"><button onclick="getJune()"><</button>July<button onclick="getAugust()">></button></div>
+    <div class="calendar__header">
+        <div>sun</div>
+        <div>mon</div>
+        <div>tue</div>
+        <div>wed</div>
+        <div>thu</div>
+        <div>fri</div>
+        <div>sat</div>
+      </div>
         <div class="calendar">
-          <div class="calendar__header">
-            <div>sun</div>
-            <div>mon</div>
-            <div>tue</div>
-            <div>wed</div>
-            <div>thu</div>
-            <div>fri</div>
-            <div>sat</div>
-          </div>
           <div class="calendar__week">
             <a class="calendar__day day" onclick="openSbar()" style="text-decoration:none; cursor:pointer">1</a>
             <a class="calendar__day day" onclick="myFunction()" style="text-decoration:none">2</a>
@@ -569,18 +529,17 @@ a{
 </div>
 
 <div id="August" style="display:none">
-
-      <div class="current-month" style="text-align:center"><button><</button>August 2016<button onclick="getFeb()">></button></div>
+  <div class="current-month" style="text-align:center"><button onclick="getJuly()"><</button>August<button onclick="getSep()">></button></div>
+    <div class="calendar__header">
+        <div>sun</div>
+        <div>mon</div>
+        <div>tue</div>
+        <div>wed</div>
+        <div>thu</div>
+        <div>fri</div>
+        <div>sat</div>
+      </div>
         <div class="calendar">
-          <div class="calendar__header">
-            <div>sun</div>
-            <div>mon</div>
-            <div>tue</div>
-            <div>wed</div>
-            <div>thu</div>
-            <div>fri</div>
-            <div>sat</div>
-          </div>
           <div class="calendar__week">
             <a class="calendar__day day" onclick="openSbar()" style="text-decoration:none; cursor:pointer">1</a>
             <a class="calendar__day day" onclick="myFunction()" style="text-decoration:none">2</a>
@@ -627,18 +586,17 @@ a{
 </div>
 
 <div id="September" style="display:none">
-
-      <div class="current-month" style="text-align:center"><button><</button>September 2016<button onclick="getFeb()">></button></div>
+  <div class="current-month" style="text-align:center"><button onclick="getAugust()"><</button>September<button onclick="getOct()">></button></div>
+    <div class="calendar__header">
+        <div>sun</div>
+        <div>mon</div>
+        <div>tue</div>
+        <div>wed</div>
+        <div>thu</div>
+        <div>fri</div>
+        <div>sat</div>
+      </div>
         <div class="calendar">
-          <div class="calendar__header">
-            <div>sun</div>
-            <div>mon</div>
-            <div>tue</div>
-            <div>wed</div>
-            <div>thu</div>
-            <div>fri</div>
-            <div>sat</div>
-          </div>
           <div class="calendar__week">
             <a class="calendar__day day" onclick="openSbar()" style="text-decoration:none; cursor:pointer">1</a>
             <a class="calendar__day day" onclick="myFunction()" style="text-decoration:none">2</a>
@@ -684,18 +642,17 @@ a{
 </div>
 
 <div id="October" style="display:none">
-
-      <div class="current-month" style="text-align:center"><button><</button>October 2016<button onclick="getFeb()">></button></div>
+  <div class="current-month" style="text-align:center"><button onclick="getSep()"><</button>October<button onclick="getNov()">></button></div>
+    <div class="calendar__header">
+        <div>sun</div>
+        <div>mon</div>
+        <div>tue</div>
+        <div>wed</div>
+        <div>thu</div>
+        <div>fri</div>
+        <div>sat</div>
+      </div>
         <div class="calendar">
-          <div class="calendar__header">
-            <div>sun</div>
-            <div>mon</div>
-            <div>tue</div>
-            <div>wed</div>
-            <div>thu</div>
-            <div>fri</div>
-            <div>sat</div>
-          </div>
           <div class="calendar__week">
             <a class="calendar__day day" onclick="openSbar()" style="text-decoration:none; cursor:pointer">1</a>
             <a class="calendar__day day" onclick="myFunction()" style="text-decoration:none">2</a>
@@ -742,18 +699,17 @@ a{
 </div>
 
 <div id="November" style="display:none">
-
-      <div class="current-month" style="text-align:center"><button><</button>November 2016<button onclick="getFeb()">></button></div>
+  <div class="current-month" style="text-align:center"><button onclick="getOct()"><</button>November<button onclick="getDec()">></button></div>
+    <div class="calendar__header">
+        <div>sun</div>
+        <div>mon</div>
+        <div>tue</div>
+        <div>wed</div>
+        <div>thu</div>
+        <div>fri</div>
+        <div>sat</div>
+      </div>
         <div class="calendar">
-          <div class="calendar__header">
-            <div>sun</div>
-            <div>mon</div>
-            <div>tue</div>
-            <div>wed</div>
-            <div>thu</div>
-            <div>fri</div>
-            <div>sat</div>
-          </div>
           <div class="calendar__week">
             <a class="calendar__day day" onclick="openSbar()" style="text-decoration:none; cursor:pointer">1</a>
             <a class="calendar__day day" onclick="myFunction()" style="text-decoration:none">2</a>
@@ -799,18 +755,17 @@ a{
 </div>
 
 <div id="December" style="display:none">
-
-      <div class="current-month" style="text-align:center"><button><</button>December 2016<button onclick="getFeb()">></button></div>
+  <div class="current-month" style="text-align:center"><button onclick="getNov()"><</button>December<button onclick="getJan()">></button></div>
+    <div class="calendar__header">
+        <div>sun</div>
+        <div>mon</div>
+        <div>tue</div>
+        <div>wed</div>
+        <div>thu</div>
+        <div>fri</div>
+        <div>sat</div>
+      </div>
         <div class="calendar">
-          <div class="calendar__header">
-            <div>sun</div>
-            <div>mon</div>
-            <div>tue</div>
-            <div>wed</div>
-            <div>thu</div>
-            <div>fri</div>
-            <div>sat</div>
-          </div>
           <div class="calendar__week">
             <a class="calendar__day day" onclick="openSbar()" style="text-decoration:none; cursor:pointer">1</a>
             <a class="calendar__day day" onclick="myFunction()" style="text-decoration:none">2</a>
@@ -925,71 +880,82 @@ function myFunction() {
   var reschedule = alert("Please Change my shift to");
 }
 
-function getFeb() {
-  document.getElementById("January").style.display = "none";
-  document.getElementById("February").style.display = "block";
-}
-
 function getJan() {
   document.getElementById("January").style.display = "block";
   document.getElementById("February").style.display = "none";
+  document.getElementById("December").style.display = "none";
 }
 
-function Date(){
-  var today = new Date();
-  var day = today.getDate();
-  var month = today.getMonth() + 1; 
-  var year = today.getFullYear();
-  var week = today.getDay();
-  
-  switch(month){
-    case 1: 
-      document.getElementBy('January').style.display = "block";
-      break;
-    case 2:
-      document.getElementBy('February').style.display = "block";
-      break;
-    case 3: 
-      document.getElementBy('March').style.display = "block";
-      break;
-    case 4: 
-      document.getElementBy('April').style.display = "block";
-      break;
-    case 5: 
-      document.getElementBy('May').style.display = "block";
-      break;
-    case 6: 
-      document.getElementBy('June').style.display = "block";
-      break;
-    case 7: 
-      document.getElementBy('July').style.display = "block";
-      break;
-    case 8: 
-      document.getElementBy('August').style.display = "block";
-      break;
-    case 9: 
-      document.getElementBy('September').style.display = "block";
-      break;
-    case 10: 
-      document.getElementBy('October').style.display = "block";
-      break;
-    case 11: 
-      document.getElementBy('November').style.display = "block";
-      break;
-    case 12: 
-      document.getElementBy('December').style.display = "block";
-      break;
-    default:
-      document.getElementBy('December').style.display = "block";
-  }
-  
-  document.getElementBy("calendar");
+function getFeb() {
+  document.getElementById("January").style.display = "none";
+  document.getElementById("February").style.display = "block";
+  document.getElementById("March").style.display = "none";
+}
+
+function getMarch() {
+  document.getElementById("March").style.display = "block";
+  document.getElementById("February").style.display = "none";
+  document.getElementById("April").style.display = "none";
+}
+
+function getApril() {
+  document.getElementById("April").style.display = "block";
+  document.getElementById("March").style.display = "none";
+  document.getElementById("May").style.display = "none";
+}
+
+function getMay() {
+  document.getElementById("May").style.display = "block";
+  document.getElementById("June").style.display = "none";
+  document.getElementById("April").style.display = "none";
+}
+
+function getJune() {
+  document.getElementById("June").style.display = "block";
+  document.getElementById("May").style.display = "none";
+  document.getElementById("July").style.display = "none";
+}
+
+function getJuly() {
+  document.getElementById("July").style.display = "block";
+  document.getElementById("June").style.display = "none";
+  document.getElementById("August").style.display = "none";
+}
+
+function getAugust() {
+  document.getElementById("August").style.display = "block";
+  document.getElementById("September").style.display = "none";
+  document.getElementById("July").style.display = "none";
+}
+
+function getSep() {
+  document.getElementById("September").style.display = "block";
+  document.getElementById("August").style.display = "none";
+  document.getElementById("October").style.display = "none";
+}
+
+function getOct() {
+  document.getElementById("October").style.display = "block";
+  document.getElementById("September").style.display = "none";
+  document.getElementById("November").style.display = "none";
+}
+
+function getNov() {
+  document.getElementById("November").style.display = "block";
+  document.getElementById("October").style.display = "none";
+  document.getElementById("December").style.display = "none";
+}
+
+function getDec() {
+  document.getElementById("December").style.display = "block";
+  document.getElementById("November").style.display = "none";
+  document.getElementById("January").style.display = "none";
 }
 
 function checkDate(){
   var day = new Date();
   var d = day.getDate();
-  var m = day.getMonth() + 1; 
+  var m = day.getMonth() + 9; 
   var y = day.getFullYear();
   var w = day.getDay();
   
@@ -998,8 +964,71 @@ function checkDate(){
   document.write(day);
   document.write(typeof(day));
   document.write(typeof(m));
+  document.write(w);
+  document.write(typeof(w));
   //document.write(typeof(month));
 }
+
+function displayCalendar(){
+  var today = new Date();
+  var day = today.getDate();
+  var month = today.getMonth() + 1; 
+  var year = today.getFullYear();
+  var week = today.getDay();
+
+  switch(month){
+    case 1: 
+      document.getElementById('January').style.display = "block";
+      break;
+    case 2:
+      document.getElementById('February').style.display = "block";
+      break;
+    case 3: 
+      document.getElementById('March').style.display = "block";
+      break;
+    case 4: 
+      document.getElementById('April').style.display = "block";
+      break;
+    case 5: 
+      document.getElementById('May').style.display = "block";
+      break;
+    case 6: 
+      document.getElementById('June').style.display = "block";
+      break;
+    case 7: 
+      document.getElementById('July').style.display = "block";
+      break;
+    case 8: 
+      document.getElementById('August').style.display = "block";
+      break;
+    case 9: 
+      document.getElementById('September').style.display = "block";
+      break;
+    case 10: 
+      document.getElementById('October').style.display = "block";
+      break;
+    case 11: 
+      document.getElementById('November').style.display = "block";
+      break;
+    case 12:
+      document.getElementById('December').style.display = "block";
+      break;
+    default:
+      document.getElementById('December').style.display = "block";
+  }
+}
+
+var yearDate = new Date();
+var year = yearDate.getFullYear();
+document.getElementById("curYear").innerHTML  = "" + year;
+
+displayCalendar();
 </script>
+
+<!--.calendar__week,
+.calendar__header {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);  
+}-->
 
 <% include ./partials/footer %>
